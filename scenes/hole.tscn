@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://blltoqm25ebum"]
+
+[ext_resource type="Texture2D" uid="uid://cyh5sh4qgf727" path="res://assets/sprites/hole.png" id="1_qi4gx"]
+[ext_resource type="Script" path="res://scripts/hole.gd" id="1_sncyt"]
+[ext_resource type="AudioStream" uid="uid://bop6d8357a30f" path="res://assets/sounds/goal.wav" id="3_whql4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl0ys"]
+atlas = ExtResource("1_qi4gx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpk57"]
+atlas = ExtResource("1_qi4gx")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6uic"]
+atlas = ExtResource("1_qi4gx")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5504"]
+atlas = ExtResource("1_qi4gx")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uswd"]
+atlas = ExtResource("1_qi4gx")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ralc"]
+atlas = ExtResource("1_qi4gx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ru8hb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl0ys")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpk57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6uic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5504")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uswd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ralc")
+}],
+"loop": false,
+"name": &"goal",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf6vh"]
+radius = 1.0
+
+[node name="Hole" type="Node2D"]
+script = ExtResource("1_sncyt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ru8hb")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_yf6vh")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_whql4")
+volume_db = -16.839
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

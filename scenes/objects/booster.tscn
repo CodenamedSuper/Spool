@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://432lir4xb85o"]
+
+[ext_resource type="Script" path="res://scripts/booster.gd" id="1_05pfv"]
+[ext_resource type="Texture2D" uid="uid://cq4la0s8lcuw5" path="res://assets/sprites/booster.png" id="1_x1t11"]
+[ext_resource type="AudioStream" uid="uid://ccak65j7rgtp2" path="res://assets/sounds/boost.wav" id="2_hoad3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qrj1u"]
+size = Vector2(16, 16)
+
+[node name="Booster" type="Node2D"]
+script = ExtResource("1_05pfv")
+
+[node name="BlockSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_x1t11")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qrj1u")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_hoad3")
+volume_db = -21.791
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

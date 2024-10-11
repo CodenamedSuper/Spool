@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6hbm0djynx70"]
+
+[ext_resource type="Script" path="res://scripts/sound_button.gd" id="1_el7y2"]
+[ext_resource type="Texture2D" uid="uid://bpuxfcgcgmq21" path="res://assets/sprites/sound_on.png" id="2_ydm44"]
+
+[node name="TextureButton" type="TextureButton"]
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_el7y2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("2_ydm44")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

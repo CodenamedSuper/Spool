@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://lwjssv3dfhh2"]
+
+[node name="TriesLabel" type="Label"]
+offset_left = -128.0
+offset_top = -72.0
+offset_right = -77.0
+offset_bottom = -49.0
+text = "3 Tries"

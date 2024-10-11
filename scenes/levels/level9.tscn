@@ -1,0 +1,305 @@
+[gd_scene load_steps=11 format=3 uid="uid://bjtnwburr3sgk"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_jt8it"]
+[ext_resource type="Texture2D" uid="uid://dbesyuonk78co" path="res://assets/sprites/tiles.png" id="2_vl6fw"]
+[ext_resource type="PackedScene" uid="uid://blltoqm25ebum" path="res://scenes/hole.tscn" id="3_cjtax"]
+[ext_resource type="PackedScene" uid="uid://b1dp3r3ngpqcm" path="res://scenes/retry_button.tscn" id="4_pq3tm"]
+[ext_resource type="PackedScene" uid="uid://dcm8bsptrdje1" path="res://scenes/objects/block.tscn" id="5_s7v40"]
+[ext_resource type="PackedScene" uid="uid://yhjukj0tggur" path="res://scenes/objects/spikes.tscn" id="6_2xqm1"]
+[ext_resource type="PackedScene" uid="uid://432lir4xb85o" path="res://scenes/objects/booster.tscn" id="7_xso5l"]
+[ext_resource type="PackedScene" uid="uid://bwgjscdxd0mov" path="res://scenes/ball.tscn" id="8_ue3sl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q25pm"]
+texture = ExtResource("2_vl6fw")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_js5up"]
+sources/0 = SubResource("TileSetAtlasSource_q25pm")
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_jt8it")
+level = 8
+
+[node name="Base" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Base"]
+zoom = Vector2(4, 4)
+
+[node name="TileMap" type="TileMap" parent="Base"]
+tile_set = SubResource("TileSet_js5up")
+format = 2
+layer_0/tile_data = PackedInt32Array(262136, 0, 0, 196601, 0, 0, 131066, 0, 0, 65531, 0, 0, -4, 0, 0, 262140, 0, 0, 327675, 0, 0, -65539, 0, 0, -131074, 0, 0, -196609, 0, 0, -327680, 0, 0, 65533, 0, 0, -2, 0, 0, -65537, 0, 0, -196608, 0, 0, -262143, 0, 0, -327678, 0, 0, -327676, 0, 0, -262141, 0, 0, -196606, 0, 0, -131071, 0, 0, -65536, 0, 0, 65535, 0, 0, 131070, 0, 0, 196605, 0, 0, 327677, 0, 0, 262142, 0, 0, 196607, 0, 0, 65536, 0, 0, 1, 0, 0, -65534, 0, 0, -131069, 0, 0, -196604, 0, 0, -262139, 0, 0, -327674, 0, 0, -327672, 0, 0, -262137, 0, 0, -196602, 0, 0, -131067, 0, 0, -65532, 0, 0, 3, 0, 0, 65538, 0, 0, 131073, 0, 0, 196608, 0, 0, 327679, 0, 0, 262145, 0, 0, 196610, 0, 0, 131075, 0, 0, 65540, 0, 0, 5, 0, 0, -65530, 0, 0, -131065, 0, 0, -196600, 0, 0, -65528, 0, 0, 7, 0, 0, 65542, 0, 0, 131077, 0, 0, 196612, 0, 0, 262147, 0, 0, 262149, 0, 0, 196614, 0, 0, 131079, 0, 0, 65544, 0, 0, 196616, 0, 0, 262151, 0, 0, 327671, 0, 0, 262138, 0, 0, 327673, 0, 0, 196603, 0, 0, 131068, 0, 0, 196599, 0, 0, 131064, 0, 0, 65529, 0, 0, -6, 0, 0, -65541, 0, 0, -131076, 0, 0, -196611, 0, 0, -262146, 0, 0, -262148, 0, 0, -196613, 0, 0, -131078, 0, 0, -65543, 0, 0, -8, 0, 0, 65527, 0, 0, -65545, 0, 0, -131080, 0, 0, -196615, 0, 0, -262150, 0, 0, -262152, 0, 0, -196617, 0, 0, -262153, 65536, 0, -131081, 65536, 0, -196616, 65536, 0, -262151, 65536, 0, -131079, 65536, 0, -196614, 65536, 0, -65542, 65536, 0, -131077, 65536, 0, -65540, 65536, 0, -5, 65536, 0, 131067, 65536, 0, 65532, 65536, 0, 131069, 65536, 0, 196604, 65536, 0, 262141, 65536, 0, 327676, 65536, 0, 262139, 65536, 0, 327674, 65536, 0, 196602, 65536, 0, 262137, 65536, 0, 131065, 65536, 0, 196600, 65536, 0, 65528, 65536, 0, 131063, 65536, 0, -9, 65536, 0, -65544, 65536, 0, -7, 65536, 0, 65530, 65536, 0, 262135, 65536, 0, 327672, 65536, 0, 196606, 65536, 0, 131071, 65536, 0, 0, 65536, 0, -65535, 65536, 0, -131070, 65536, 0, -196605, 65536, 0, -262140, 65536, 0, -327675, 65536, 0, -327677, 65536, 0, -262142, 65536, 0, -196607, 65536, 0, -131072, 65536, 0, -1, 65536, 0, 65534, 65536, 0, -3, 65536, 0, -65538, 65536, 0, -131073, 65536, 0, -262144, 65536, 0, -327679, 65536, 0, -262145, 65536, 0, -196610, 65536, 0, -131075, 65536, 0, -262147, 65536, 0, -196612, 65536, 0, -262149, 65536, 0, 327678, 65536, 0, 262143, 65536, 0, 131072, 65536, 0, 65537, 65536, 0, 2, 65536, 0, -65533, 65536, 0, -131068, 65536, 0, -196603, 65536, 0, -262138, 65536, 0, -327673, 65536, 0, -262136, 65536, 0, -196601, 65536, 0, -131066, 65536, 0, -65531, 65536, 0, 4, 65536, 0, 65539, 65536, 0, 131074, 65536, 0, 196609, 65536, 0, 262144, 65536, 0, 262146, 65536, 0, 196611, 65536, 0, 131076, 65536, 0, 65541, 65536, 0, 6, 65536, 0, -65529, 65536, 0, -131064, 65536, 0, 8, 65536, 0, 65543, 65536, 0, 131078, 65536, 0, 196613, 65536, 0, 262148, 65536, 0, 262150, 65536, 0, 196615, 65536, 0, 131080, 65536, 0, 262152, 65536, 0)
+
+[node name="Hole2" parent="Base" instance=ExtResource("3_cjtax")]
+position = Vector2(8, -40)
+
+[node name="TriesLabel" type="Label" parent="Base"]
+offset_left = -128.0
+offset_top = -72.0
+offset_right = -77.0
+offset_bottom = -49.0
+text = "3 Tries"
+
+[node name="TextureButton2" parent="Base" instance=ExtResource("4_pq3tm")]
+offset_left = 96.0
+offset_top = -72.0
+offset_right = 112.0
+offset_bottom = -56.0
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Block6" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-136, 88)
+
+[node name="Block7" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-120, 88)
+
+[node name="Block8" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-104, 88)
+
+[node name="Block9" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-88, 88)
+
+[node name="Block10" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-72, 88)
+
+[node name="Block11" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-56, 88)
+
+[node name="Block12" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-40, 88)
+
+[node name="Block13" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-24, 88)
+
+[node name="Block14" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-8, 88)
+
+[node name="Block15" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(8, 88)
+
+[node name="Block16" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(24, 88)
+
+[node name="Block17" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(40, 88)
+
+[node name="Block18" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(56, -88)
+
+[node name="Block19" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(72, -88)
+
+[node name="Block20" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(88, -88)
+
+[node name="Block21" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(104, -88)
+
+[node name="Block22" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(120, -88)
+
+[node name="Block23" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(136, -88)
+
+[node name="Block25" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-40, -88)
+
+[node name="Block26" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-24, -88)
+
+[node name="Block27" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-8, -88)
+
+[node name="Block28" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(8, -88)
+
+[node name="Block29" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(24, -88)
+
+[node name="Block30" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(40, -88)
+
+[node name="Block31" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-136, -88)
+
+[node name="Block37" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-152, -88)
+
+[node name="Block38" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-152, -72)
+
+[node name="Block39" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-152, -56)
+
+[node name="Block40" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-152, -40)
+
+[node name="Block41" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-152, -24)
+
+[node name="Block42" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-152, -8)
+
+[node name="Block43" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-152, 8)
+
+[node name="Block44" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-152, 24)
+
+[node name="Block45" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-152, 40)
+
+[node name="Block46" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-152, 56)
+
+[node name="Block47" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-152, 72)
+
+[node name="Block48" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-152, 88)
+
+[node name="Block49" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(152, -88)
+
+[node name="Block50" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(152, -72)
+
+[node name="Block51" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(152, -56)
+
+[node name="Block52" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(152, -40)
+
+[node name="Block53" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(152, -24)
+
+[node name="Block54" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(152, -8)
+
+[node name="Block55" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(152, 8)
+
+[node name="Block56" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(152, 24)
+
+[node name="Block57" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(152, 40)
+
+[node name="Block58" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(152, 56)
+
+[node name="Block59" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(152, 72)
+
+[node name="Block60" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(152, 88)
+
+[node name="Block32" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-120, -88)
+
+[node name="Block33" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-104, -88)
+
+[node name="Block34" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-88, -88)
+
+[node name="Block35" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-72, -88)
+
+[node name="Block36" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-56, -88)
+
+[node name="Block24" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(56, 88)
+
+[node name="Block61" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(72, 88)
+
+[node name="Block62" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(88, 88)
+
+[node name="Block63" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(104, 88)
+
+[node name="Block64" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(120, 88)
+
+[node name="Block65" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(136, 88)
+
+[node name="Block" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(-24, 8)
+
+[node name="Block2" parent="Objects" instance=ExtResource("5_s7v40")]
+position = Vector2(40, 8)
+
+[node name="Spikes" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(8, 8)
+
+[node name="Spikes2" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(24, 8)
+
+[node name="Spikes3" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(-8, 8)
+
+[node name="Spikes6" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(-56, 8)
+
+[node name="Spikes14" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(-88, 8)
+
+[node name="Spikes15" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(-104, 8)
+
+[node name="Spikes16" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(-120, 8)
+
+[node name="Spikes17" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(-136, 8)
+
+[node name="Spikes7" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(72, 8)
+
+[node name="Spikes11" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(104, 8)
+
+[node name="Spikes12" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(120, 8)
+
+[node name="Spikes13" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(136, 8)
+
+[node name="Spikes8" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(88, 8)
+
+[node name="Spikes9" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(-72, 8)
+
+[node name="Spikes10" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(-72, 8)
+
+[node name="Spikes4" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(-40, -72)
+
+[node name="Spikes18" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(-72, -40)
+
+[node name="Spikes19" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(88, -40)
+
+[node name="Spikes5" parent="Objects" instance=ExtResource("6_2xqm1")]
+position = Vector2(56, -72)
+
+[node name="Booster" parent="Objects" instance=ExtResource("7_xso5l")]
+position = Vector2(-40, -40)
+
+[node name="Booster2" parent="Objects" instance=ExtResource("7_xso5l")]
+position = Vector2(56, -40)
+
+[node name="Ball" parent="." instance=ExtResource("8_ue3sl")]
+position = Vector2(8, 56)
+
+[connection signal="on_move" from="Ball" to="." method="on_ball_move"]
+[connection signal="on_zero_tries" from="Ball" to="." method="on_zero_ball_tries"]

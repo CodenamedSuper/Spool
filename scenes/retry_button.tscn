@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1dp3r3ngpqcm"]
+
+[ext_resource type="Script" path="res://scripts/texture_button.gd" id="1_nj00g"]
+[ext_resource type="Texture2D" uid="uid://dbqjggtjap3gu" path="res://assets/sprites/retry.png" id="2_v2pu4"]
+
+[node name="TextureButton" type="TextureButton"]
+offset_right = 16.0
+offset_bottom = 16.0
+script = ExtResource("1_nj00g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, 8)
+texture = ExtResource("2_v2pu4")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
